@@ -5,6 +5,7 @@ import createRouter from "./routes/crud.route.js"
 import readRouter from "./routes/crud.route.js";
 import  updateRouter  from "./routes/crud.route.js";
 import getuserRouter from "./routes/crud.route.js";
+import delRouter from "./routes/crud.route.js";
 const app = express();
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
@@ -20,3 +21,4 @@ app.use('/task',createRouter)
 app.use('/task',readRouter);
 app.use('/task',updateRouter);
 app.use('/task',getuserRouter);
+app.use('/task',delRouter)

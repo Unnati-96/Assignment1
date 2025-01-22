@@ -1,4 +1,4 @@
-import { createUser, test ,readUser, updateUser, getuser} from "../controllers/crud.controller.js";
+import { createUser, test ,readUser, updateUser, getuser, delUser} from "../controllers/crud.controller.js";
 
 
 import express from "express";
@@ -9,5 +9,6 @@ router.post('/create',createUser);
 router.get('/read',readUser);
 router.get('/getuser/:id',getuser);
 router.put('/update/:id',updateUser)
+router.delete('/deluser/:id',delUser)
 
 export default router;

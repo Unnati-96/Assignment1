@@ -24,10 +24,15 @@ Step4: Creating Model
 .creating userSchema and userModel using mongoose.
 
 Step5: CRUD
-.Create: defining route and controller for create operation using .create() method.
+.Create: used user.create() method of mongoose inthe controller(createUser) to create collection inthe DB and then imported this in it's defined route(with post method) and then added this route to the index.js.
+ 
+.Read: used user.find({}) method of mongoose inthe controller to fetch all the users and then imported this in it's defined route(with get method) and then added it to the index.js.
 
+.Update: used user.findByIdAndUpdate() of mongoose inthe controller(updateUser) to update the user in the DB and then imported this in it's defined route(with put method and dynamic parameter(id)) and then added it to the index.js.
 
+.FindById: used user.findById() of mongoose inthe controller(getUser) to get specific user and then imported it inthe defined route(with get method and dynamic parameter(id)) and then added it to the index.js.
 
+.Delete: used .FindByIdAndDelete() of mongoose inthe controller(delUser) to del the specific user and then imported this in it's defined route(with delete method() and dynamic parameter(id)) and then added it to the index.js.
 
 
 
