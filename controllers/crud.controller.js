@@ -22,7 +22,7 @@ export const readUser = (req,res)=>{
 
 export const updateUser = async (req,res)=>{
     const id = req.params.id;
-  const updated= await  user.findByIdAndUpdate({_id:id},{id:req.body.id,name:req.body.name,age:req.body.age}).then((update)=>{
+  const updated= await  user.findByIdAndUpdate({_id:id},{id:req.body.id,name:req.body.name,age:req.body.age}, { new: true }).then((update)=>{
         res.json(update);
       console.log(update);
     }).catch((err)=>{
@@ -31,9 +31,12 @@ export const updateUser = async (req,res)=>{
 }
 export const getuser =async (req,res)=>{
     const id = req.params.id;
-     const user = await user.findById({_id:id}).then((result)=>{
+    // const {id,name } = req.params;
+     const data = await user.findById({_id:id}).then((result)=>{
         res.json(result);
-        console.log(result);
+        // res.json({result:result,message:`Hello, ${name}`});
+        // res.json({result:result,message:`Hello, ${result.name}`});
+        console.log(result,`Hello,${result.name}`);
     }).catch((err)=>{
         res.json(err);
     })
