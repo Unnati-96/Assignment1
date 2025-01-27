@@ -6,15 +6,6 @@ export const test = (req,res)=>{
 }
 
 
-// export const createUser = (req,res)=>{
-//   const data = user.create(req.body).then((user)=>{
-//     res.json(user);
-//     console.log(user);
-//   }).catch((err)=>{
-//      res.json(err);
-//   })
-//  }
-
 export const createUser =async (req,res)=>{
     try{
     const data = await user.create(req.body);
@@ -188,4 +179,39 @@ export const delUser = async (req,res)=>{
     res.status(500).json({message:"Error deleting user", error:err.message});
   }
    
+}
+
+
+// export const getAggregateUsers = async (req,res)=>{   //using $match operator
+// try {
+//   const data = await user.aggregate([{
+//     $match:{age:20}
+//   },
+// {
+//   $count : 'age20'
+// }]);
+// res.status(200).json(data);
+// } catch (err) {
+//   res.status(500).json({message:"Error aggregating users",error:err.message})
+// }
+// }
+
+export const getAggregateUsers = async (req,res)=>{
+  try {
+    const data =await user.aggregate([
+      {
+        $group: {
+          _id:null,
+          averageAge: {
+            $avg : "$age",
+          }
+        }
+      }
+    ]);
+res.status(200).json(data);
+
+  } catch (err) {
+  res.status(500).json({message:"Error aggregating users",error:err.message})
+    
+  }
 }
