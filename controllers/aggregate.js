@@ -34,6 +34,16 @@ export const getAvgAge = async (req,res)=>{
           }
         }
       ]);
+           //for total no. males and females
+         // {
+            //     $group: {
+            //         _id:"$gender",
+            //        genderCount:
+            //        {
+            //          $sum :1
+            //        }
+            //     }
+            // }
   res.status(200).json(data);
   
     } catch (err) {
@@ -44,10 +54,17 @@ export const getAvgAge = async (req,res)=>{
   export const topFruits =  async (req,res)=>{
     try {
         const data =await user.aggregate([
-            {
+            //For unique favFruits
+            // {
+            //     $group:{
+            //         _id:"$favFruit",
+            //     }
+            // }
+            
+            {   //top favfruits
                 $group:{
                     _id:"$favFruit",
-                    count:
+                    fruitsCount:
                     {
                         $sum : 1
                     }
@@ -61,6 +78,7 @@ export const getAvgAge = async (req,res)=>{
             {
                 $limit : 2
             }
+         
 
         ]);
         res.status(200).json(data);
