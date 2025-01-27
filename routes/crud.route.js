@@ -7,8 +7,11 @@ import express from "express";
 router.get('/test',test);
 router.post('/create',createUser);
 router.get('/read',readUser);
-// router.get('/getuser/:id/:name',getuser);
-router.get('/getuser/:id',getuser);
+// router.get('/getuser/:_id?/:name?/:age?',getuser);  //for req.params
+router.get('/getuser',getuser);     //for req.query
+
+// router.get('/getuser/:name',getuser);
+// router.get('/getuser/:id',getuser);
 router.put('/update/:id',updateUser)
 router.delete('/deluser/:id',delUser)
 

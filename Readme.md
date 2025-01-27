@@ -34,6 +34,15 @@ Step5: CRUD
 
 .Delete: used .FindByIdAndDelete() of mongoose inthe controller(delUser) to del the specific user and then imported this in it's defined route(with delete method() and dynamic parameter(id)) and then added it to the index.js.
 
+Step 6: 
+.search: used user.find(Filter), here,Filter: an empty object Filter and added properties to this Filter obj if they fulfilled the specified condition and used req.query for destructuring parameters,imported this controller in its defined route (/getuser with get method).
+
+#made changes in the previous CRUD operations by replacing .then()/.catch() with try/catch blocks.
+#created separate file for mongodb configuration 
+#added dotenv package for storing and accessing environment variables(sensitive data or credentials).
+
+
+
 
 
 
