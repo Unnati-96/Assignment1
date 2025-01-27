@@ -33,7 +33,7 @@ export const updateUser = async (req,res)=>{
 
 try {
   
-  const updated= await  user.findByIdAndUpdate({_id:id},{id:req.body.id,name:req.body.name,age:req.body.age}, { new: true });
+  const updated= await  user.findByIdAndUpdate({_id:id},{id:req.body.id,name:req.body.name,age:req.body.age,email:req.body.email,favFruit:req.body.favFruit,gender:req.body.gender}, { new: true });
   if(!updated)
   {
     res.status(404).json({error:"User does not exist!"});
@@ -182,36 +182,3 @@ export const delUser = async (req,res)=>{
 }
 
 
-// export const getAggregateUsers = async (req,res)=>{   //using $match operator
-// try {
-//   const data = await user.aggregate([{
-//     $match:{age:20}
-//   },
-// {
-//   $count : 'age20'
-// }]);
-// res.status(200).json(data);
-// } catch (err) {
-//   res.status(500).json({message:"Error aggregating users",error:err.message})
-// }
-// }
-
-export const getAggregateUsers = async (req,res)=>{
-  try {
-    const data =await user.aggregate([
-      {
-        $group: {
-          _id:null,
-          averageAge: {
-            $avg : "$age",
-          }
-        }
-      }
-    ]);
-res.status(200).json(data);
-
-  } catch (err) {
-  res.status(500).json({message:"Error aggregating users",error:err.message})
-    
-  }
-}

@@ -7,7 +7,9 @@ import readRouter from "./routes/crud.route.js";
 import  updateRouter  from "./routes/crud.route.js";
 import getuserRouter from "./routes/crud.route.js";
 import delRouter from "./routes/crud.route.js";
-import aggregateRouter from "./routes/crud.route.js";
+import countRouter from "./routes/aggregate.js";
+import avgRouter from "./routes/aggregate.js";
+import topFruitRouter from "./routes/aggregate.js"
 
 const app = express();
 app.listen(3000,()=>{
@@ -20,10 +22,12 @@ await Mongodb();
 //     console.log("Connection Established!!");
 // }).catch((err)=>{console.log(err)});
 // mongoose.disconnect();
-app.use('/task',testRouter);
-app.use('/task',createRouter)
-app.use('/task',readRouter);
-app.use('/task',updateRouter);
-app.use('/task',getuserRouter);
-app.use('/task',delRouter);
-app.use('/task',aggregateRouter);
+app.use('/task/crud',testRouter);
+app.use('/task/crud',createRouter)
+app.use('/task/crud',readRouter);
+app.use('/task/crud',updateRouter);
+app.use('/task/crud',getuserRouter);
+app.use('/task/crud',delRouter);
+app.use('/task/aggregate',countRouter);
+app.use('/task/aggregate',avgRouter);
+app.use('/task/aggregate',topFruitRouter);

@@ -1,5 +1,5 @@
 #First Assignment
-=> Day:1
+=> Day 1:
 Step 1: Downloading Node for windows
 check whether node is installed or not using "node -v"
 if not then goto "https://nodejs.org" and download the LTS version(recommended for users).
@@ -24,7 +24,7 @@ Step4: Created Model
 .created userSchema and userModel using mongoose.
   
 
-=>Day:2  
+=> Day 2: 
 Step5: CRUD
 .Create: [API: "localhost:3000/task/create"] with POST method and passing the data in the req.body;
 used user.create() method of mongoose inthe controller(createUser) to create collection inthe DB and then imported this in it's defined route(with post method) and then added this route to the index.js.
@@ -41,7 +41,7 @@ used user.find({}) method of mongoose inthe controller to fetch all the users an
 .Delete:  [API: "localhost:3000/task/deluser/:id"] with del method and passing the id in the parameter(req.params for accessing id)
 used .FindByIdAndDelete() of mongoose inthe controller(delUser) to del the specific user and then imported this in it's defined route(with delete method() and dynamic parameter(id)) and then added it to the index.js.
 
-Day=>3
+=> Day 3:
 Step 6:
 .fetched user using their name/id using the concept of req.params. [API: "localhost:3000/task/getuser/Anita/30" OR "localhost:3000/task/Anita"]
 .search [API:"localhost:3000/task/getuser?name=Anita&age=30" OR "localhost:3000/task/getuser?age=30"] : used user.find(Filter), Here, Filter: an empty object Filter and added properties to this Filter obj if they fulfilled the specified conditions and used req.query for destructuring query parameters,to search users based on their id/name/age/email ,imported this controller in its defined route  (get method). 
@@ -51,7 +51,21 @@ Step 6:
 #added dotenv package for storing and accessing environment variables(sensitive data or credentials).
 #Applied the concept of regex (for name and email(added one more field))
 
- 
+
+=> Day 4:
+Learned Concept of Aggregation Pipeline: aggregate method
+.How many users have age 20? (used $match and $count operators)
+.What is the average age of all users? (used $group and $avg opeartors or stages )
+.List the top 2 most common favFruits among the users.{used $group,$sort,$limit operators or stages}
+
+
+
+
+.created a service folder for adding new fields to the database 
+.Also created separate routes  and controller files for each aggregate operation
+
+
+
 
 
  

@@ -16,7 +16,20 @@ const userSchema= new mongoose.Schema({
     email:
     {
         type:String,
+        required:false,
         match: [/^\S+@\S+\.\S+$/]
+    },
+    favFruit:
+    {
+        type:String,
+        required:true,
+        default:"apple",
+    },
+    gender :
+    {
+        type:String,
+        required:true,
+        default:"Female"
     }
 
 });
