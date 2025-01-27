@@ -1,5 +1,5 @@
 #First Assignment
-
+=> Day:1
 Step 1: Downloading Node for windows
 check whether node is installed or not using "node -v"
 if not then goto "https://nodejs.org" and download the LTS version(recommended for users).
@@ -20,29 +20,39 @@ Step3:Connecting to Database
 .Install mongoose package and using mongoose.connect() to connect to mongodb database.
 (mongodb connection string)
 
-Step4: Creating Model
-.creating userSchema and userModel using mongoose.
+Step4: Created Model
+.created userSchema and userModel using mongoose.
+  
 
+=>Day:2  
 Step5: CRUD
-.Create: used user.create() method of mongoose inthe controller(createUser) to create collection inthe DB and then imported this in it's defined route(with post method) and then added this route to the index.js.
+.Create: [API: "localhost:3000/task/create"] with POST method and passing the data in the req.body;
+used user.create() method of mongoose inthe controller(createUser) to create collection inthe DB and then imported this in it's defined route(with post method) and then added this route to the index.js.
  
-.Read: used user.find({}) method of mongoose inthe controller to fetch all the users and then imported this in it's defined route(with get method) and then added it to the index.js.
+.Read:  [API: "localhost:3000/task/read"] with GET method 
+used user.find({}) method of mongoose inthe controller to fetch all the users and then imported this in it's defined route(with get method) and then added it to the index.js.
 
-.Update: used user.findByIdAndUpdate() of mongoose inthe controller(updateUser) to update the user in the DB and then imported this in it's defined route(with put method and dynamic parameter(id)) and then added it to the index.js.
+.Update: [API: "localhost:3000/task/update/:id"] with PUT method and passing the data in the req.body;
+ used user.findByIdAndUpdate() of mongoose inthe controller(updateUser) to update the user in the DB and then imported this in it's defined route(with put method and dynamic parameter(id)) and then added it to the index.js.
 
-.FindById: used user.findById() of mongoose inthe controller(getUser) to get specific user and then imported it inthe defined route(with get method and dynamic parameter(id)) and then added it to the index.js.
+.FindById:  [API: "localhost:3000/getuser/:id"] with get method and passing the id in the parameter(req.params for accessing id)
+ used user.findById() of mongoose inthe controller(getUser) to get specific user and then imported it inthe defined route(with get method and dynamic parameter(id)) and then added it to the index.js.
 
-.Delete: used .FindByIdAndDelete() of mongoose inthe controller(delUser) to del the specific user and then imported this in it's defined route(with delete method() and dynamic parameter(id)) and then added it to the index.js.
+.Delete:  [API: "localhost:3000/task/deluser/:id"] with del method and passing the id in the parameter(req.params for accessing id)
+used .FindByIdAndDelete() of mongoose inthe controller(delUser) to del the specific user and then imported this in it's defined route(with delete method() and dynamic parameter(id)) and then added it to the index.js.
 
-Step 6: 
-.search: used user.find(Filter), here,Filter: an empty object Filter and added properties to this Filter obj if they fulfilled the specified condition and used req.query for destructuring parameters,imported this controller in its defined route (/getuser with get method).
+Day=>3
+Step 6:
+.fetched user using their name/id using the concept of req.params. [API: "localhost:3000/task/getuser/Anita/30" OR "localhost:3000/task/Anita"]
+.search [API:"localhost:3000/task/getuser?name=Anita&age=30" OR "localhost:3000/task/getuser?age=30"] : used user.find(Filter), Here, Filter: an empty object Filter and added properties to this Filter obj if they fulfilled the specified conditions and used req.query for destructuring query parameters,to search users based on their id/name/age/email ,imported this controller in its defined route  (get method). 
 
 #made changes in the previous CRUD operations by replacing .then()/.catch() with try/catch blocks.
 #created separate file for mongodb configuration 
 #added dotenv package for storing and accessing environment variables(sensitive data or credentials).
+#Applied the concept of regex (for name and email(added one more field))
+
+ 
 
 
-
-
-
+ 
 
