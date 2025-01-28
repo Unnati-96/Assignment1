@@ -81,7 +81,7 @@ export const getAvgAge = async (req,res)=>{
                 $limit : 2
             }
          
-
+ 
         ]);
         res.status(200).json(data);
     } catch (err) {
@@ -90,7 +90,7 @@ export const getAvgAge = async (req,res)=>{
   }
 
 
-  export const avgHobbies = async (req,res)=>{
+  export const avgHobbies = async (req,res)=>{  //What is the avg no. of hobbies per user
    
    try {
     const data = await user.aggregate([
@@ -144,8 +144,8 @@ export const getAvgAge = async (req,res)=>{
     try {
         const data = await user.aggregate([
             {
-                // $match:{hobbies:"m", favFruit:"apple"}
-                $match:{email:/@gmail\.com$/}
+                // $match:{hobbies:"m", favFruit:"apple"}  //users who have "m" as their hobby and apple as favFruit
+                $match:{email:/@gmail\.com$/}    //how many users have "@gmail" intheir email?
             },
             {
                 // $project:{
@@ -157,7 +157,59 @@ export const getAvgAge = async (req,res)=>{
         ]);
         res.status(200).json(data); 
     } catch (err) {
-        res.status(500).json({error:err.message}); 
+        res.status(500).json({error:err.message});  
+        
+    }
+  }
+
+//   export const categorized = async(req,res)=>{  //categorize users based on their favFruit.
+//     try {
+//         const data = await user.aggregate([
+//          {$group:{
+//             _id: "$favFruit",
+//             users:
+//             {
+//             $push:"$name"
+//             }
+//          }}
+//         ]);
+//         res.status(200).json(data); 
+
+//     } catch (err) {
+//         res.status(500).json({error:err.message});  
+        
+//     }
+//   }
+
+//   export const categorized = async(req,res)=>{  //How many users have "n" as their sec hobby int the list
+//     try {
+//         const data = await user.aggregate([
+//         {$match:{"hobbies.1":"n"}},
+//         {$count:"SecHobby"}
+//         ]);
+//         res.status(200).json(data); 
+
+//     } catch (err) {
+//         res.status(500).json({error:err.message});  
+        
+//     }
+//   }
+
+
+export const categorized = async(req,res)=>{  //Find users who have both "m" and "d" as their hobby
+    try {
+        const data = await user.aggregate([
+       {$match:{hobbies:{
+        $all : ["m","d"]
+       }}},
+       {
+        $count:"num"
+       }
+        ]);
+        res.status(200).json(data); 
+
+    } catch (err) {
+        res.status(500).json({error:err.message});  
         
     }
   }

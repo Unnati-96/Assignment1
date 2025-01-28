@@ -13,6 +13,7 @@ import avgRouter from "./routes/aggregate.js";
 import topFruitRouter from "./routes/aggregate.js"
 import avgHobbiesRouter from "./routes/aggregate.js";
 import bothcondnsRouter from "./routes/aggregate.js";
+import  categorizedRouter  from "./routes/aggregate.js";
 
 const app = express();
 app.listen(3000,()=>{
@@ -38,3 +39,4 @@ app.use('/task/aggregate',avgRouter);
 app.use('/task/aggregate',topFruitRouter);
 app.use('/task/aggregate',avgHobbiesRouter);
 app.use('/task/aggregate',bothcondnsRouter);
+app.use('/task/aggregate',categorizedRouter)
