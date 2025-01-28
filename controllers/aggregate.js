@@ -6,9 +6,11 @@ export const getAgeCount= async (req,res)=>{   //using $match operator
 try {
   const data = await user.aggregate([{
     $match:{age:Number(num)}
+    // $match:{hobbies:"m"}
   },
 {
   $count : `age${num}`
+// $count: "hobbbies_m"
 }]);
 if(data.length ===0)
 {
@@ -135,4 +137,27 @@ export const getAvgAge = async (req,res)=>{
     res.status(500).json({message:"Error fetching top fruits",error:err.message})
     
    }
+  }
+  
+  export const bothcondns = async (req,res)=>{
+   
+    try {
+        const data = await user.aggregate([
+            {
+                // $match:{hobbies:"m", favFruit:"apple"}
+                $match:{email:/@gmail\.com$/}
+            },
+            {
+                // $project:{
+                //     name:1,
+                //     age:1
+                // }
+                $count:"userswith@gmail"
+            }
+        ]);
+        res.status(200).json(data); 
+    } catch (err) {
+        res.status(500).json({error:err.message}); 
+        
+    }
   }

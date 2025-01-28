@@ -60,6 +60,9 @@ Learned Concept of Aggregation Pipeline: aggregate method
 .Find the total no. of males and females(used $group and $sum operators )
 .List unique favFruits(used $group operator)
 .What is the avg no. of hobbies per user? (used $unwind,$group,$sum and $avg operators or stages)
+.How many users have "m" as one of their hobby? (used $match and $count operators)
+.What are the names and age of users who have "m" as their hobby and apple as favFruit? (used $match operators and , for both fields)
+.how many users have "@gmail" intheir email? ($match operator, $count operator and regex "/@gmail\.com$/").
 
 
 
