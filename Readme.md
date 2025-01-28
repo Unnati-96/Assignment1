@@ -56,7 +56,10 @@ Step 6:
 Learned Concept of Aggregation Pipeline: aggregate method
 .How many users have age 20? (used $match and $count operators)
 .What is the average age of all users? (used $group and $avg opeartors or stages )
-.List the top 2 most common favFruits among the users.{used $group,$sort,$limit operators or stages}
+.List the top 2 most common favFruits among the users.(used $group,$sum,$sort,$limit operators or stages)
+.Find the total no. of males and females(used $group and $sum operators )
+.List unique favFruits(used $group operator)
+.What is the avg no. of hobbies per user? (used $unwind,$group,$sum and $avg operators or stages)
 
 
 

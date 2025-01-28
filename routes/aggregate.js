@@ -1,5 +1,5 @@
 import express from "express";
-import {  getAgeCount, getAvgAge, topFruits } from "../controllers/aggregate.js";
+import {  avgHobbies, getAgeCount, getAvgAge, topFruits } from "../controllers/aggregate.js";
 
 const router = express.Router();
 
@@ -7,5 +7,6 @@ const router = express.Router();
 router.get('/agecount/:num',getAgeCount)
 router.get('/avgage',getAvgAge);
 router.get('/topfruit',topFruits)
+router.get('/avghobbies',avgHobbies);
 
  export default router;

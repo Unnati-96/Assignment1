@@ -30,6 +30,12 @@ const userSchema= new mongoose.Schema({
         type:String,
         required:true,
         default:"Female"
+    },
+    hobbies:
+    {
+       type:Array,
+       required:true,
+       default:[]
     }
 
 });

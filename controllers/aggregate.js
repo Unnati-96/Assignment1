@@ -72,7 +72,7 @@ export const getAvgAge = async (req,res)=>{
             },
             {
              $sort:{
-                count: -1
+                fruitsCount: -1
              }
             },
             {
@@ -85,4 +85,54 @@ export const getAvgAge = async (req,res)=>{
     } catch (err) {
         res.status(500).json({message:"Error fetching top fruits",error:err.message})
     }
+  }
+
+
+  export const avgHobbies = async (req,res)=>{
+   
+   try {
+    const data = await user.aggregate([
+    //    { $unwind:"$hobbies"},
+    //    {$group:
+    //     {
+    //         _id:"$_id",
+    //         counthobbies:
+    //         {
+    //             $sum:1
+    //         }
+    //     }
+    //    },
+    //    {
+    //     $group:{
+    //         _id:null,
+    //         avghobbies:
+    //         {
+    //    $avg: "$counthobbies"
+    //         }
+    //     }
+    //    }
+    {
+        $addFields:
+        {
+            avghobbies : {
+                $size : {$ifNull :["$hobbies",[]]}
+            }
+        },
+    },
+    {
+        $group:
+        {
+            _id:null,
+            avgNoHobbies:
+            {
+                $avg: "$avghobbies"
+            }
+        }
+    }
+       ]);
+       res.status(200).json(data);
+   } catch (error) {
+    res.status(500).json({message:"Error fetching top fruits",error:err.message})
+    
+   }
   }

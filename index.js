@@ -1,5 +1,6 @@
 import express from "express";
 // import mongoose from "mongoose";
+// import { addnew } from "./Services/userService.js";
 import { Mongodb } from "./config/mongodb.js";
 import testRouter from "./routes/crud.route.js"
 import createRouter from "./routes/crud.route.js"
@@ -10,10 +11,12 @@ import delRouter from "./routes/crud.route.js";
 import countRouter from "./routes/aggregate.js";
 import avgRouter from "./routes/aggregate.js";
 import topFruitRouter from "./routes/aggregate.js"
+import avgHobbiesRouter from "./routes/aggregate.js";
 
 const app = express();
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
+    // addnew();
 });
 app.use(express.json());
 
@@ -28,6 +31,8 @@ app.use('/task/crud',readRouter);
 app.use('/task/crud',updateRouter);
 app.use('/task/crud',getuserRouter);
 app.use('/task/crud',delRouter);
+
 app.use('/task/aggregate',countRouter);
 app.use('/task/aggregate',avgRouter);
 app.use('/task/aggregate',topFruitRouter);
+app.use('/task/aggregate',avgHobbiesRouter);
