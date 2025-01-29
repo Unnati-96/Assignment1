@@ -64,11 +64,20 @@ Learned Concept of Aggregation Pipeline: aggregate method
 .What are the names and age of users who have "m" as their hobby and apple as favFruit? (used $match operators and , for both fields)
 .how many users have "@gmail" intheir email? ($match operator, $count operator and regex "/@gmail\.com$/").
 
-
-
-
 .created a service folder for adding new fields to the database 
 .Also created separate routes  and controller files for each aggregate operation
+
+=>Day 5:
+(Remaining questions of aggregate)
+.categorize users based on their favFruit.($group,$push)
+.How many users have "n" as their sec hobby int the list?($match{"hobbies.1":"n"},$count)
+.Find users who have both "m" and "d" as their hobby. ($match and $all operator )
+
+.Learned the concept of middleware and applied it on test route for testing the middleware.
+.Defined Global Error Handling middleware for catching/handling errors in all routes, in index.js at the end of all routes.
+.created a customized errorHandler(error.js) Function inside Utils folder .
+
+
 
 
 

@@ -202,9 +202,9 @@ export const categorized = async(req,res)=>{  //Find users who have both "m" and
        {$match:{hobbies:{
         $all : ["m","d"]
        }}},
-       {
-        $count:"num"
-       }
+    //    {
+    //     $count:"num"
+    //    }
         ]);
         res.status(200).json(data); 
 

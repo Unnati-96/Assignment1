@@ -14,6 +14,8 @@ import topFruitRouter from "./routes/aggregate.js"
 import avgHobbiesRouter from "./routes/aggregate.js";
 import bothcondnsRouter from "./routes/aggregate.js";
 import  categorizedRouter  from "./routes/aggregate.js";
+import signupRouter from "./routes/auth.js";
+
 
 const app = express();
 app.listen(3000,()=>{
@@ -40,3 +42,17 @@ app.use('/task/aggregate',topFruitRouter);
 app.use('/task/aggregate',avgHobbiesRouter);
 app.use('/task/aggregate',bothcondnsRouter);
 app.use('/task/aggregate',categorizedRouter)
+
+app.use('/task/auth',signupRouter);
+
+//Global ErrorHandler middleware
+app.use((err,req,res,next)=>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error!";
+    return res.status(statusCode).json({
+        success:false,
+        statusCode,
+        message
+    })
+
+})
