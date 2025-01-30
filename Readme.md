@@ -76,7 +76,31 @@ Learned Concept of Aggregation Pipeline: aggregate method
 .Learned the concept of middleware and applied it on test route for testing the middleware.
 .Defined Global Error Handling middleware for catching/handling errors in all routes, in index.js at the end of all routes.
 .created a customized errorHandler(error.js) Function inside Utils folder .
+.created separate routes for signup and signin for authentication.
 
+
+=>Day 6:
+.completed signin and signup functionality and created a authupdateRouter so that only authenticate users can do the updation.
+.Learned and Implemented the JWT Authentication:
+A> sending token via Cookies
+.In signinUser(controller) : when the user signed in then a token is issued with the help of  jsonwebtoken.
+1> check the email and password is valid (using .findOne({email}) method ) ,if valid then create token.
+2>for creating token: jwt.sign({payload},signature/secretkey)
+3> storing or sending this token to the client then we use res.cookie("nameofToken",token,{attributesofToken}).
+4> verifyUser middleware for verifying the token :
+used cookie-parser middleware in index.js for accessing the jwt content inside cookie (app.use(cookie-parser()))
+fetched token info using req.cookies.NameOfCookie and then used jwt.verify(token,signature/secretkey,(err,user)=>{passed this verified user to next handler })
+5> ApI: localhost:3000/task/auth/authupdate/:id with PUT method for authenticated users do the updation.
+
+B>sending token via response (For Mobile Applications)
+1> in signin controller after creating token using jwt.sign() ,sent token in response as res.json({token})
+2>in verifyUser middleware used headers for accessing or sending token to the client;
+const uid = req.headers["authorization"] ,then splited it from Bearer to get the token
+(const token=uid.split("Bearer ")[1]) and used jwt.verify(token,signature/secretkey,()=>{same as above}).
+
+
+
+ 
 
 
 

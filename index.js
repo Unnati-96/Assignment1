@@ -15,6 +15,9 @@ import avgHobbiesRouter from "./routes/aggregate.js";
 import bothcondnsRouter from "./routes/aggregate.js";
 import  categorizedRouter  from "./routes/aggregate.js";
 import signupRouter from "./routes/auth.js";
+import signinRouter from "./routes/auth.js";
+import authUpdateRouter from "./routes/auth.js";
+import cookieParser from "cookie-parser";
 
 
 const app = express();
@@ -23,6 +26,7 @@ app.listen(3000,()=>{
     // addnew();
 });
 app.use(express.json());
+app.use(cookieParser());
 
 await Mongodb();
 // mongoose.connect("mongodb://localhost:27017/task1").then(()=>{
@@ -44,6 +48,8 @@ app.use('/task/aggregate',bothcondnsRouter);
 app.use('/task/aggregate',categorizedRouter)
 
 app.use('/task/auth',signupRouter);
+app.use('/task/auth',signinRouter);
+app.use('/task/auth',authUpdateRouter);
 
 //Global ErrorHandler middleware
 app.use((err,req,res,next)=>{
