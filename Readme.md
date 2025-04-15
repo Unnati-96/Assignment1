@@ -28,7 +28,7 @@ Step5: CRUD
 
 Step6: Practicing Git/Git-hub
 .Clone Project from git-hub (git clone URL)!!!!
-.Make changes using add and commit -m ""
+.Make changes Using add and Commit -m "Message for commit"
 
 
 

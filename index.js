@@ -9,7 +9,7 @@ app.listen(3000,()=>{
 app.use(express.json());
 
 mongoose.connect("mongodb://localhost:27017/task1").then(()=>{
-    console.log("Connection Established!!");
+    console.log("Connection Established!");
 }).catch((err)=>{console.log(err)});
 
 app.use('/task',testRouter);
