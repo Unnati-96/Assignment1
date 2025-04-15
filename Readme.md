@@ -27,8 +27,8 @@ Step5: CRUD
 .Create: defining route and controller for create operation using .create() method.
 
 Step6: Practicing Git/Git-hub
-.Clone Project from git-hub (git clone URL)!!!!
-.Make changes Using add and Commit -m "Message For Commit!"
+.Clone Project from git-hub (git clone URL)!!
+.Make changes Using add and Commit -m "Commit Messages!!"
 
 
 
