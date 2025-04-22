@@ -11,9 +11,9 @@ open terminal move to the root/working directory and run command npm init(intili
 . run npm i (to install all the packages and dependencies mentioned inthe package.json);it will create a node_modules folder and package.lockjson file.
 
 Step3: install express using "npm i express"
-.create server using express,check it using "node .\index.js" 
+.create server using express,run it using "node .\index.js" 
 installing nodemon to prevent refreshing or restarting server on every change("nodemon .\index.js").
-.created testing route for this create routes folder(defining the route/path) and controllers folder (defining the action/function mapped with the route) and added it to index.js(using app.use()).
+.created testing route for this, create routes folder(defining the route/path) and controllers folder (defining the action/function mapped with the route) and added it to index.js(using app.use()).
 .Downloaded MongoDB Compass
 
 Step3:Connecting to Database
